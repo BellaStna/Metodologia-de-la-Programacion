@@ -4,26 +4,6 @@ using namespace std;
 const int TAM_BLOQUE = 2;
 enum Tiporedimension { DeUnoEnUno, EnBloques, Duplicado };
 
-void Redimensiona (int *p, Tiporedimension tipo, int& tamanio){
-  int aum;
-  if(tipo == DeUnoEnUno){
-    aum = 1;
-  }else if (tipo == EnBloques){
-    aum = TAM_BLOQUE;
-  } else if (tipo == Duplicado){
-    aum = tamanio;
-  } else{
-    cerr << "ERROR EN EL TIPO DE REDIMENSION" << endl;
-  }
-
-  int *redim = new int[tamanio + aum];
-  for(int i = 0; i < tamanio; i++){
-      *(redim + i) = *(p + i);
-  }
-
-  tamanio += aum;
-}
-
 void Mostrar(const int *cadena, int total){
 	for(int i = 0; i < total; i++){
 		cout << *(cadena + i) << " ";
@@ -31,8 +11,26 @@ void Mostrar(const int *cadena, int total){
 	cout << endl;
 }
 
+void Redimensiona (int *p, Tiporedimension tipo, int& tamanio){
+  int aum;
+  switch(tipo){
+    case DeUnoEnUno: aum = 1; break;
+    case EnBloques: aum = TAM_BLOQUE; break;
+    case Duplicado: aum = tamanio; break;
+    default: cerr << "ERROR EN EL TIPO DE REDIMENSION" << endl;
+  }
+  int *redim = new int[tamanio + aum];
+  for(int i = 0; i < tamanio; i++){
+    *(redim + i) = *(p + i);
+  }
+  cout << &redim << endl;
+  tamanio += aum;
+  delete[] redim;
+  p = redim;
+}
+
 int main(int totalArgumentos, char **argumentos){
-  int TAM = 0, actual = 0, tipo, *dinamico = new int[TAM];
+  int TAM = 1, actual = 0, tipo, *dinamico = new int[TAM];
   Tiporedimension redimension;
 
   if(totalArgumentos == 1){
@@ -54,12 +52,13 @@ int main(int totalArgumentos, char **argumentos){
   int valor = 0;
   cin >> valor;
   while (valor != 0){
-    dinamico[actual] = valor;
-    actual++;
-
-    if (actual > TAM){
+    if (actual >= TAM){
       Redimensiona(dinamico, redimension, TAM);
     }
+    cout << &dinamico << endl;
+
+    dinamico[actual] = valor;
+    actual++;
 
     cin >> valor;
   }
