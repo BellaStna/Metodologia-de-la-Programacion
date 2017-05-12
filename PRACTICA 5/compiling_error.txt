@@ -1,0 +1,66 @@
+C:\Users\Usuario\Desktop\Universidad\PracticasMP\PRACTICA 5\04_Dinamic_Matriz2D_1.cpp:4:7: error: expected nested-name-specifier before 'namaespace'
+ using namaespace std;
+       ^
+C:\Users\Usuario\Desktop\Universidad\PracticasMP\PRACTICA 5\04_Dinamic_Matriz2D_1.cpp: In function 'void Apartado_C(int, int)':
+C:\Users\Usuario\Desktop\Universidad\PracticasMP\PRACTICA 5\04_Dinamic_Matriz2D_1.cpp:23:3: error: 'cout' was not declared in this scope
+   cout << "INTRODUZCA LOS VALORES DE LA MATRIZ" << endl;
+   ^
+C:\Users\Usuario\Desktop\Universidad\PracticasMP\PRACTICA 5\04_Dinamic_Matriz2D_1.cpp:23:3: note: suggested alternative:
+In file included from C:\Users\Usuario\Desktop\Universidad\PracticasMP\PRACTICA 5\04_Dinamic_Matriz2D_1.cpp:1:0:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^
+C:\Users\Usuario\Desktop\Universidad\PracticasMP\PRACTICA 5\04_Dinamic_Matriz2D_1.cpp:23:52: error: 'endl' was not declared in this scope
+   cout << "INTRODUZCA LOS VALORES DE LA MATRIZ" << endl;
+                                                    ^
+C:\Users\Usuario\Desktop\Universidad\PracticasMP\PRACTICA 5\04_Dinamic_Matriz2D_1.cpp:23:52: note: suggested alternative:
+In file included from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\iostream:39:0,
+                 from C:\Users\Usuario\Desktop\Universidad\PracticasMP\PRACTICA 5\04_Dinamic_Matriz2D_1.cpp:1:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^
+C:\Users\Usuario\Desktop\Universidad\PracticasMP\PRACTICA 5\04_Dinamic_Matriz2D_1.cpp:26:7: error: 'cin' was not declared in this scope
+       cin >> matriz[i][j];
+       ^
+C:\Users\Usuario\Desktop\Universidad\PracticasMP\PRACTICA 5\04_Dinamic_Matriz2D_1.cpp:26:7: note: suggested alternative:
+In file included from C:\Users\Usuario\Desktop\Universidad\PracticasMP\PRACTICA 5\04_Dinamic_Matriz2D_1.cpp:1:0:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\iostream:60:18: note:   'std::cin'
+   extern istream cin;  /// Linked to standard input
+                  ^
+C:\Users\Usuario\Desktop\Universidad\PracticasMP\PRACTICA 5\04_Dinamic_Matriz2D_1.cpp:26:14: error: 'matriz' was not declared in this scope
+       cin >> matriz[i][j];
+              ^
+C:\Users\Usuario\Desktop\Universidad\PracticasMP\PRACTICA 5\04_Dinamic_Matriz2D_1.cpp: In function 'void Apartado_D(int, int)':
+C:\Users\Usuario\Desktop\Universidad\PracticasMP\PRACTICA 5\04_Dinamic_Matriz2D_1.cpp:39:7: error: 'matriz' was not declared in this scope
+       matriz[i][j] =  1 + rand() % (11 - 1);;
+       ^
+C:\Users\Usuario\Desktop\Universidad\PracticasMP\PRACTICA 5\04_Dinamic_Matriz2D_1.cpp: In function 'void Apartado_E(int, int, int**)':
+C:\Users\Usuario\Desktop\Universidad\PracticasMP\PRACTICA 5\04_Dinamic_Matriz2D_1.cpp:48:7: error: 'cout' was not declared in this scope
+       cout << matriz[i][j] << "  " ;
+       ^
+C:\Users\Usuario\Desktop\Universidad\PracticasMP\PRACTICA 5\04_Dinamic_Matriz2D_1.cpp:48:7: note: suggested alternative:
+In file included from C:\Users\Usuario\Desktop\Universidad\PracticasMP\PRACTICA 5\04_Dinamic_Matriz2D_1.cpp:1:0:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^
+C:\Users\Usuario\Desktop\Universidad\PracticasMP\PRACTICA 5\04_Dinamic_Matriz2D_1.cpp:50:5: error: 'cout' was not declared in this scope
+     cout << endl;
+     ^
+C:\Users\Usuario\Desktop\Universidad\PracticasMP\PRACTICA 5\04_Dinamic_Matriz2D_1.cpp:50:5: note: suggested alternative:
+In file included from C:\Users\Usuario\Desktop\Universidad\PracticasMP\PRACTICA 5\04_Dinamic_Matriz2D_1.cpp:1:0:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^
+C:\Users\Usuario\Desktop\Universidad\PracticasMP\PRACTICA 5\04_Dinamic_Matriz2D_1.cpp:50:13: error: 'endl' was not declared in this scope
+     cout << endl;
+             ^
+C:\Users\Usuario\Desktop\Universidad\PracticasMP\PRACTICA 5\04_Dinamic_Matriz2D_1.cpp:50:13: note: suggested alternative:
+In file included from c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\iostream:39:0,
+                 from C:\Users\Usuario\Desktop\Universidad\PracticasMP\PRACTICA 5\04_Dinamic_Matriz2D_1.cpp:1:
+c:\mingw\lib\gcc\mingw32\5.3.0\include\c++\ostream:590:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^
+C:\Users\Usuario\Desktop\Universidad\PracticasMP\PRACTICA 5\04_Dinamic_Matriz2D_1.cpp: At global scope:
+C:\Users\Usuario\Desktop\Universidad\PracticasMP\PRACTICA 5\04_Dinamic_Matriz2D_1.cpp:54:63: error: cannot declare pointer to 'int&'
+ void Apartado_F(int filas, int columnas, int **matriz, int& **copia){
+                                                               ^

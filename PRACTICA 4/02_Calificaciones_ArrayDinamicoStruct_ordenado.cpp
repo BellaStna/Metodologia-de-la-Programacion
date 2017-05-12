@@ -9,8 +9,7 @@ struct RegAlumno{
 	char *apellido_nombre;
   char *DNI;
 
-	RegAlumno()
-	{
+	RegAlumno(){
 			apellido_nombre = new char[TAM_NOMBRE];
 			DNI = new char[10];
 	}
@@ -61,25 +60,25 @@ void Ordena(double *vec, RegAlumno *vec2, int final){
 		*(vec2 + big) 	= *(vec2 + j);
 		*(vec2 + j) 	= alg;
 	}
-
 }
 
-/*void Redimensiona02 (int *p, Tiporedimension tipo, int& tamanio){
-  if(tamanio < actual)
-
-
-  int *redim = new int[tamanio + aum];
-  for(int i = 0; i < tamanio; i++){
-      *(redim + i) = *(p + i);
-  }
-
-  tamanio += aum;
-}*/
+void Redimensiona (RegAlumno *p, int& tamanio, int util){
+	if(util > tamanio){
+	  RegAlumno *redim = new RegAlumno[tamanio + 1];
+	  for(int i = 0; i < tamanio; i++){
+	    *(redim + i) = *(p + i);
+	  }
+	  cout << &redim << endl;
+	  tamanio += 1;
+	  delete[] redim;
+	  p = redim;
+	}
+}
 
 int main(int totalArgumentos, char **argumentos){
   int num_notas  = 0;
-	int TAM = 10;
-	int inicio = 0, a = 0;
+	int TAM = 1;
+	int inicio = 0;
   RegAlumno alumnos[TAM];
   double *medias 	= new double[TAM];
 	double *peso 		= new double[TAM];
@@ -88,6 +87,7 @@ int main(int totalArgumentos, char **argumentos){
   cin >> num_notas;
   cout << "Introduzca el peso de cada examen." << endl;
 	for(int i = 0; i < num_notas; i++){
+		cout << i +1 << "  Peso : ";
 		cin >> peso[i];
 	}
   if (! PesoCorrecto(peso,num_notas) ){
@@ -95,28 +95,30 @@ int main(int totalArgumentos, char **argumentos){
 	} else {
 		int util = 0;
 		cin.ignore();
-		cout << "Introduzca el DNI(* para terminar): ";
-    cin.getline(alumnos[a].DNI, TAM_NOMBRE);
-		cout << "Introduzca el nombre y apellidos: ";
-		cin.getline(alumnos[a].apellido_nombre, TAM_NOMBRE);
+		cout << endl << "ALUMNO " << util << endl <<  "DNI: ";
+    cin.getline(alumnos[util].DNI, TAM_NOMBRE);
 
-		while (alumnos[a].DNI[0] != '*'){
+		while (alumnos[util].DNI[0] != '*'){
+			cout << "Nombre y apellidos: ";
+			cin.getline(alumnos[util].apellido_nombre, TAM_NOMBRE);
 			for(int j = 0; j < num_notas; j++){
 				cout << j + 1 << " Nota : " ;
-				cin >> alumnos[a].notas[j];
+				cin >> alumnos[util].notas[j];
 			}
+			cout << "HA SALIDO DEL BUCLE FOR" << endl;
 			util++;
-			cout << "Introduzca el DNI: ";
+			Redimensiona (alumnos,TAM, util);
+			cout << "SE HA REDIMENSIONADO" << endl;
+			cout << endl <<  "ALUMNO " << util << endl <<  "DNI: ";
 			cin.ignore();
-	    cin.getline(alumnos[a].DNI, TAM_NOMBRE);
-			cout << "Introduzca el nombre y apellidos: ";
-			cin.getline(alumnos[a].apellido_nombre, TAM_NOMBRE);
+	    cin.getline(alumnos[util].DNI, TAM_NOMBRE);
 		}
-
-	Media(peso, medias , alumnos, util,num_notas);
-	Ordena(medias, alumnos, util);
-	if (totalArgumentos >=1) {inicio = atoi( *(argumentos + 1) ); }
-	if (totalArgumentos == 2) {util = atoi( *(argumentos + 1) ); }
-	Mostrar18(medias,alumnos,inicio, util,num_notas);
-	};
+		cout << "HA SALIDO DEL BUCLE WHILE" << endl;
+		Media(peso, medias , alumnos, util,num_notas);
+		Mostrar18(medias,alumnos,inicio, util,num_notas);
+		Ordena(medias, alumnos, util);
+		if (totalArgumentos >=1) {inicio = atoi( *(argumentos + 1) ); }
+		if (totalArgumentos == 2) {util = atoi( *(argumentos + 1) ); }
+		Mostrar18(medias,alumnos,inicio, util,num_notas);
+		};
 }
