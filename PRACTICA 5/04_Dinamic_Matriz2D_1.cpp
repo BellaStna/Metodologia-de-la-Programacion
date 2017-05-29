@@ -80,13 +80,15 @@ int **Apartado_H(int filas,int columnas, int borrar,int **matriz){
   //ELIMINA FILA
   int a = 0;
   int **sin_fila = Apartado_A(filas - 1, columnas);
-  for (int i = 0; i < filas; i++){
-    for (int j = 0; j < columnas; j++){
-      if(borrar == i){
-        a++;
+  for(int i = 0; i<filas; i++){
+    if(borrar != filas){
+      for(int j=0; j<columnas; j++){
+        sin_fila[a][j] = matriz[i][j];
       }
-      sin_fila[i][j] = matriz[i - a][j];
-      }
+      a++;
+    }else{
+      i++;
+    }
   }
   return sin_fila;
 }
@@ -166,10 +168,10 @@ int main (){
   int eliminar;
   cout << endl << "APARTADO H: ELIMINA FILA"<< endl << "Introduzca la fila a eliminar: ";
   cin >> eliminar;
-  int ** H = Apartado_H(filasD,columnasD, eliminar,D);
+  int **H = Apartado_H(filasD,columnasD, eliminar,D);
   Apartado_E(filasD - 1, columnasD, H);
 
-  cout << endl << "APARTADO I: ELIMINA COLUMNA"<< endl << "Introduzca la columna a eliminar: ";
+  cout << endl << "APARTADO I: ELIMINA COLUMNA"<< endl << "Introduzca la  docolumna a eliminar: ";
   cin >> eliminar;
   int **I = Apartado_I(filasD,columnasD, eliminar,D);
   Apartado_E(filasD, columnasD - 1, I);
